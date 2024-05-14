@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Thêm mới</h1>
+<form action="/employees/add" method="post" th:object="${employee}">
+    <input type="text" th:field="*{name}"><br>
+    <input type="date" th:field="*{dob}"><br>
+    <select th:field="*{sex}">
+        <option value="true">Nam</option>
+        <option value="false">Nữ</option>
+    </select>
+    <br>
+    <input type="submit" value="Add">
+</form>
+</body>
+</html>
