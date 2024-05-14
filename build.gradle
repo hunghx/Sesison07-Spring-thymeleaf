@@ -31,9 +31,10 @@ dependencies {
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
 
-    //    jstl
-    // https://mvnrepository.com/artifact/javax.servlet/jstl
-    implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
+    //    thymeleaf
+    // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5
+    implementation group: 'org.thymeleaf', name: 'thymeleaf-spring5', version: '3.0.15.RELEASE'
+    implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '2.5.2'
 
     //    spring-orm
     // https://mvnrepository.com/artifact/org.springframework/spring-orm
