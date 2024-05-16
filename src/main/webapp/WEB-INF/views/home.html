@@ -10,6 +10,7 @@
 <div th:insert="~{layout/header :: header(${employee},2)}">
 </div>
 <h1>Hello homepage</h1>
+<a href="/products/list">Product List</a>
 <!-- Hiển thị văn bản -->
 <!--<p th:text="${'Today is ' + date}">Today is ...</p>-->
 <p th:text="|Today is ${#calendars.format(date,'dd/MM/yyyy')}|">Today is ...</p>

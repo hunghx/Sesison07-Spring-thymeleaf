@@ -24,4 +24,19 @@ public class EmployeeServiceImpl implements IEmployeeService{
         e.setIsDelete(false);
         employeeRepository.save(e);
     }
+
+    @Override
+    public Employee findById(Integer id) {
+        return null;
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+
+    }
+
+    @Override
+    public void update(Employee employee) {
+
+    }
 }

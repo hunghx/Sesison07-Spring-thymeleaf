@@ -4,7 +4,6 @@ import ra.orm.entity.Employee;
 
 import java.util.List;
 
-public interface IEmployeeService {
-    List<Employee> findAll();
-    void save(Employee e);
+public interface IEmployeeService extends IGenericService<Employee,Integer> {
+
 }
