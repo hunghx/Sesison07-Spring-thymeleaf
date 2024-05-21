@@ -46,6 +46,8 @@ dependencies {
     // https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
     implementation 'commons-fileupload:commons-fileupload:1.5'
 
+// https://mvnrepository.com/artifact/com.google.firebase/firebase-admin
+    implementation 'com.google.firebase:firebase-admin:8.1.0'
 
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.8'

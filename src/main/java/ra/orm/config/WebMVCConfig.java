@@ -25,7 +25,7 @@ import javax.servlet.annotation.MultipartConfig;
 @ComponentScan(basePackages = "ra.orm") // quét package để phát hiện các thành phần (component) và tạo bean
 // (@Component,@Controller, @Service , @Repository)
 public class WebMVCConfig implements WebMvcConfigurer, ApplicationContextAware {
-    private static final  String uploadPath= "C:\\Users\\AD\\IdeaProjects\\mvc-hibernate-config\\src\\main\\webapp\\uploads\\";
+//    private static final  String uploadPath= "C:\\Users\\AD\\IdeaProjects\\mvc-hibernate-config\\src\\main\\webapp\\uploads\\";
     private ApplicationContext applicationContext;
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
@@ -68,7 +68,7 @@ public class WebMVCConfig implements WebMvcConfigurer, ApplicationContextAware {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/css/**","/uploads/**")
-                .addResourceLocations("classpath:/static/css/","file:"+uploadPath);
+                .addResourceLocations("classpath:/static/css/","/uploads/");
     }
 
     // cấu hình kích thước upload
