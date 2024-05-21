@@ -1,13 +1,13 @@
 package ra.orm.service;
 
 import com.google.cloud.storage.*;
-import jakarta.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletContext;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;

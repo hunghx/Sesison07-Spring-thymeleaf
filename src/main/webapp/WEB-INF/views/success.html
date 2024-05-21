@@ -6,6 +6,6 @@
 </head>
 <body>
 
-<img th:each="filename : ${fileNames}" th:src="|/uploads/${filename}|" width="200" height="200" style="object-fit: cover"/>
+<img th:each="filename : ${fileNames}" th:src="${filename}" width="200" height="200" style="object-fit: cover"/>
 </body>
 </html>
