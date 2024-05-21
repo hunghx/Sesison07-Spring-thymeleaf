@@ -7,7 +7,8 @@
 <body>
 <h1>Thêm mới</h1>
 <form action="/employees/add" method="post" th:object="${employee}">
-    <input type="text" th:field="*{name}"><br>
+    <input type="text" th:field="*{name}">
+    <span style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
     <input type="date" th:field="*{dob}"><br>
     <select th:field="*{sex}">
         <option value="true">Nam</option>
