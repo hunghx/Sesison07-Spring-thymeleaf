@@ -43,6 +43,9 @@ dependencies {
     //    hibenate-core
     // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
     implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.6.15.Final'
+    // https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload
+    implementation 'commons-fileupload:commons-fileupload:1.5'
+
 
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.8'

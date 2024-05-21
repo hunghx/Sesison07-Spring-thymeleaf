@@ -29,6 +29,8 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository{
     // product
     // id, name, price, stock, createdAt, description, productType (enum ('Nam','Nữ') ), isDeleted
     // 30p : làm 2 tính  năng : hiển thị và xóa
+    // 45p :  thêm mới và cập nhật thông tin sản phâm
+
 
     // tìm kiếm và phân trang
 
