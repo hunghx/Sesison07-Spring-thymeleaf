@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ra.orm.entity.Employee;
 import ra.orm.service.IEmployeeService;
+import ra.orm.validator.EmployeeValidator;
 
 import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/employees")
 public class EmployeeController {
+    @Autowired
+    private EmployeeValidator employeeValidator;
     @Autowired
     private IEmployeeService employeeService;
     @GetMapping("/list")
@@ -30,6 +33,7 @@ public class EmployeeController {
     }
     @PostMapping("/add")
     public String doAdd(@Valid @ModelAttribute("employee") Employee employee, BindingResult result,Model model){
+        employeeValidator.validate(employee,result);
         if (result.hasErrors()){
             model.addAttribute("employee",employee);
             return "employee/add";

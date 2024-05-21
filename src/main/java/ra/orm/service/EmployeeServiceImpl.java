@@ -31,6 +31,11 @@ public class EmployeeServiceImpl implements IEmployeeService{
     }
 
     @Override
+    public boolean existByName(String name) {
+        return employeeRepository.existByName(name);
+    }
+
+    @Override
     public void deleteById(Integer id) {
 
     }

@@ -5,19 +5,20 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ra.orm.entity.Employee;
+import ra.orm.entity.Product;
 
 import java.util.List;
 
 
 @Repository
-public class EmployeeRepositoryImpl implements IEmployeeRepository{
+public class EmployeeRepositoryImpl implements IEmployeeRepository {
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
     public List<Employee> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("from Employee",Employee.class).list();
+        return session.createQuery("from Employee", Employee.class).list();
     }
 
     @Override
@@ -47,5 +48,12 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository{
     @Override
     public void update(Employee employee) {
 
+    }
+
+    @Override
+    public boolean existByName(String name) {
+        Session session = sessionFactory.getCurrentSession();
+        return !session.createQuery("from Employee where name =:name", Employee.class)
+                .setParameter("name", name).list().isEmpty();
     }
 }
