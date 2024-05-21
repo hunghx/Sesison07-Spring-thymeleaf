@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<img th:src="|/uploads/${fileName}|" width="200" height="200" style="object-fit: cover"/>
+
+<img th:each="filename : ${fileNames}" th:src="|/uploads/${filename}|" width="200" height="200" style="object-fit: cover"/>
 </body>
 </html>
