@@ -38,7 +38,10 @@ public class AdminController {
     }
 
     @GetMapping({"/category","/category.html"})
-    public String category( @RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size" , defaultValue = "4") Integer size , Model model){
+    public String category( @RequestParam(value = "page", defaultValue = "0") Integer page,
+                            @RequestParam(value = "size" , defaultValue = "4") Integer size,
+                            @RequestParam(defaultValue = "") String keyword ,
+                            Model model){
         // *** phan trang cần gửi gì ?
         // số trang
         // số phần tu trong 1 trang
@@ -47,14 +50,15 @@ public class AdminController {
         // số trang hien tại
         // số ptu tren trang
         // tổng số trang
-        long totalElements = categoryService.totalElements();
+        long totalElements = categoryService.totalElements(keyword);
         long a = totalElements/size; // phần nguyên
         long b = totalElements%size; // phần dư
         long total = b==0 ? a : a+1;
         model.addAttribute("total", total);
-        model.addAttribute("categories",categoryService.findAllByPagination(page,size));
+        model.addAttribute("categories",categoryService.findAllByPagination(page,size,keyword));
         model.addAttribute("page",page);
         model.addAttribute("size",size);
+        model.addAttribute("keyword",keyword);
         return "category";
     }
 

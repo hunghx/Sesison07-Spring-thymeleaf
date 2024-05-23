@@ -19,17 +19,17 @@ public class CategoryServiceImpl implements ICategoryService{
     }
 
     @Override
-    public List<Category> findAllByPagination(Integer page, Integer size) {
+    public List<Category> findAllByPagination(Integer page, Integer size,String keyword) {
         // 0 - 0
         // 1 // 4
         // 2 // 8
         int offset = page*size;
-        return categoryRepository.findAllByPagination(offset,size);
+        return categoryRepository.findAllByPagination(offset,size,keyword);
     }
 
     @Override
-    public long totalElements() {
-        return categoryRepository.totalElements();
+    public long totalElements(String keyword) {
+        return categoryRepository.totalElements(keyword);
     }
 
     @Override

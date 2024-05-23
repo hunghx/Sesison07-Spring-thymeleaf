@@ -20,18 +20,21 @@ public class CategoryRepositoryImpl implements ICategoryRepository {
     }
 
     @Override
-    public List<Category> findAllByPagination(int offset, int limit) {
+    public List<Category> findAllByPagination(int offset, int limit, String keyword) {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("from Category where isDeleted = false", Category.class)
+        return session.createQuery("from Category where isDeleted = false and name like :key", Category.class)
+                .setParameter("key","%"+keyword+"%")
                 .setFirstResult(offset)
                 .setMaxResults(limit)
                 .list();
     }
 
     @Override
-    public long totalElements() {
+    public long totalElements(String keyword) {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("select count(*) from Category where isDeleted = false ",Long.class).getSingleResult();
+        return session.createQuery("select count(*) from Category where isDeleted = false and name like :key",Long.class)
+                .setParameter("key","%"+keyword+"%")
+                .getSingleResult();
     }
 
     @Override
