@@ -272,7 +272,7 @@
                             </thead>
                             <tbody id="categories">
                              <tr th:each="cat, loop:${categories}">
-                                <td th:text="${loop.count}"></td>
+                                <td th:text="${page*size+loop.count}"></td>
                                 <td th:text="${cat.name}"></td>
                                 <td th:text="${cat.description}">
                                 </td>

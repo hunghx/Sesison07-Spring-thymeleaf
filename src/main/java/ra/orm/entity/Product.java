@@ -1,6 +1,7 @@
 package ra.orm.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Data
 @Entity
+@Builder
 public class Product {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)

@@ -4,21 +4,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ra.orm.dto.request.CreateProductForm;
 import ra.orm.service.category.ICategoryService;
+import ra.orm.service.product.IProductService;
 
 @Controller
 public class AdminController {
+
     @Autowired
     private ICategoryService categoryService;
+    @Autowired
+    private IProductService productService;
     @GetMapping({"/","/index.html"})
     public String index(){
         return "index";
     }
     @GetMapping({"/product","/product.html"})
-    public String product(){
+    public String product(Model model){
+        model.addAttribute("add_product",new CreateProductForm());
+        model.addAttribute("products",productService.findAll());
+        model.addAttribute("categories",categoryService.findAll());
         return "product";
     }
+
+    // thêm mơi
+    @PostMapping("/product/add")
+    public  String doAddProduct(@ModelAttribute("add_product") CreateProductForm request){
+        productService.save(request);
+        return "redirect:/product";
+    }
+
     @GetMapping({"/category","/category.html"})
     public String category( @RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size" , defaultValue = "4") Integer size , Model model){
         // *** phan trang cần gửi gì ?

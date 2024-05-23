@@ -36,7 +36,8 @@ public class CategoryRepositoryImpl implements ICategoryRepository {
 
     @Override
     public Category findById(Integer id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Category.class,id);
     }
 
     @Override
