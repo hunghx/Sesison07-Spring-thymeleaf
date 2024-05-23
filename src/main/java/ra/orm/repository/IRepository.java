@@ -1,2 +1,10 @@
-package ra.orm.repository;public interface IRepository {
+package ra.orm.repository;
+
+import java.util.List;
+
+public interface IRepository <T, E> {
+    List<T> findAll();
+    T findById(E id);
+    void save(T t);
+    void deleteById(E id);
 }

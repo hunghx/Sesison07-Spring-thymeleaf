@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -271,17 +271,16 @@
                             </tr>
                             </thead>
                             <tbody id="categories">
-                             <tr>
-                                <td>1</td>
-                                <td>Category 1</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua
+                             <tr th:each="cat, loop:${categories}">
+                                <td th:text="${loop.count}"></td>
+                                <td th:text="${cat.name}"></td>
+                                <td th:text="${cat.description}">
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
+                                    <a  class="btn btn-warning">Edit</a>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                    <a  class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                             <!-- <tr>
@@ -416,14 +415,12 @@
                     </div>
                     <nav aria-label="Page navigation example ">
                         <ul class="pagination float-end mx-4">
-                            <li class="page-item disabled">
-                                <a class="page-link">Previous</a>
+                            <li th:class="|page-item ${page==0?'disabled':''}|">
+                                <a class="page-link" th:href="${page>0?'?page='+(page+-1):'#'}">Previous</a>
                             </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
+                            <li th:each="p,loop : ${#numbers.sequence(1,total)}" th:class="|page-item ${loop.index==page?'active':''}|"><a class="page-link" th:href="|?page=${loop.index}|" th:text="${p}"></a></li>
+                            <li th:class="|page-item ${page==total+(-1)?'disabled':''}|">
+                                <a class="page-link" th:href="${page<(total+-1)?'?page='+(page+1):'#'}">Next</a>
                             </li>
                         </ul>
                     </nav>
