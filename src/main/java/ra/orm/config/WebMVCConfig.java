@@ -6,26 +6,21 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
-import javax.servlet.annotation.MultipartConfig;
 
 @Configuration // đây là lớp hình
 @EnableWebMvc
 @ComponentScan(basePackages = "ra.orm") // quét package để phát hiện các thành phần (component) và tạo bean
 // (@Component,@Controller, @Service , @Repository)
 public class WebMVCConfig implements WebMvcConfigurer, ApplicationContextAware {
-//    private static final  String uploadPath= "C:\\Users\\AD\\IdeaProjects\\mvc-hibernate-config\\src\\main\\webapp\\uploads\\";
     private ApplicationContext applicationContext;
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
