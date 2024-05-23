@@ -62,8 +62,8 @@ public class WebMVCConfig implements WebMvcConfigurer, ApplicationContextAware {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/css/**","/uploads/**")
-                .addResourceLocations("classpath:/static/css/","/uploads/");
+        registry.addResourceHandler("/css/**","/js/**","/img/**","/uploads/**")
+                .addResourceLocations("/css/","/js/","/img/","/uploads/");
     }
 
     // cấu hình kích thước upload
